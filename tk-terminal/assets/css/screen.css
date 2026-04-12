@@ -293,6 +293,24 @@ ul, ol {
 }
 
 /* Mobile nav toggle */
+.nav-search {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: border-color var(--transition), color var(--transition);
+  white-space: nowrap;
+}
+
+.nav-search:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 .nav-toggle {
   display: none;
   background: none;
