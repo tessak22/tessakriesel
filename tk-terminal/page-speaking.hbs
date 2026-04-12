@@ -69,6 +69,9 @@
           > speaking engagements coming soon. <a href="/contact/">reach out</a> to book Tessa.
         </p>
       {{/foreach}}
+      {{#if pagination.next}}
+        <a href="/tag/speaking/" class="load-more" style="display: inline-block; margin-top: 1rem;">view full speaking archive</a>
+      {{/if}}
     </section>
   {{/get}}
 
