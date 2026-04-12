@@ -1,0 +1,143 @@
+{{!< default}}
+{{!-- Homepage --}}
+<div class="container">
+
+  {{!-- ============================================================
+       Hero Block
+       ============================================================ --}}
+  <section class="hero" aria-label="Introduction">
+    <div class="terminal-window" style="margin-bottom: 2.5rem;">
+      {{> terminal-chrome path="~/tessakriesel $"}}
+      <div class="terminal-body">
+        <p class="display-xl" style="margin-bottom: 0.75rem;">
+          TESSA KRIESEL<span class="hero__cursor" aria-hidden="true">█</span>
+        </p>
+
+        <p class="hero__tagline">
+          <span id="hero-tagline" data-text="nearly two decades in tech · devrel · builder · founder">nearly two decades in tech · devrel · builder · founder</span>
+        </p>
+
+        <p class="hero__subtitle">founding gtm lead @tabstack · built for devs · selah</p>
+
+        <div class="hero__ctas">
+          <a href="#/subscribe/" class="btn btn--primary">subscribe</a>
+          <a href="/writing/" class="btn">read my work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{!-- ============================================================
+       Currently
+       ============================================================ --}}
+  <section class="section" aria-label="Currently working on">
+    <h2 class="section-header">currently</h2>
+    <div class="currently-grid">
+      <a href="https://tabstack.io" class="currently-tile" target="_blank" rel="noopener noreferrer">
+        <div class="currently-tile__name">Tabstack</div>
+        <p class="currently-tile__role">Founding GTM Lead — Mozilla-backed developer tool for engineers who live in browser tabs</p>
+        <div class="currently-tile__status">
+          <span class="status-dot"></span>active
+        </div>
+      </a>
+
+      <a href="/projects/#built-for-devs" class="currently-tile">
+        <div class="currently-tile__name">Built for Devs</div>
+        <p class="currently-tile__role">Founder — matching elite developer advocates with companies that need them</p>
+        <div class="currently-tile__status">
+          <span class="status-dot"></span>active
+        </div>
+      </a>
+
+      <a href="/projects/#selah" class="currently-tile">
+        <div class="currently-tile__name">Selah</div>
+        <p class="currently-tile__role">Builder — faith-rooted homeschool management platform for my family and others like us</p>
+        <div class="currently-tile__status">
+          <span class="status-dot"></span>active
+        </div>
+      </a>
+    </div>
+  </section>
+
+  {{!-- ============================================================
+       Latest Writing
+       ============================================================ --}}
+  <section class="section" aria-label="Latest writing">
+    <h2 class="section-header">latest posts</h2>
+    <div class="post-feed">
+      {{#foreach posts limit="6"}}
+        {{> post-card}}
+      {{/foreach}}
+    </div>
+    {{#if pagination.next}}
+      <a href="{{page_url pagination.next}}" class="load-more">load more posts</a>
+    {{else}}
+      <a href="/writing/" class="load-more">all posts</a>
+    {{/if}}
+  </section>
+
+  {{!-- ============================================================
+       Speaking Snapshot
+       ============================================================ --}}
+  <section class="section" aria-label="Recent speaking">
+    <h2 class="section-header">recent talks</h2>
+    {{#get "posts" filter="tag:speaking" limit="3"}}
+      {{#foreach posts}}
+        <div class="speaking-card">
+          <div class="speaking-card__event">{{title}}</div>
+          {{#if custom_excerpt}}
+            <p class="speaking-card__talk">{{custom_excerpt}}</p>
+          {{/if}}
+          <div class="speaking-card__meta">
+            <span class="speaking-card__date">{{date format="YYYY-MM-DD"}}</span>
+          </div>
+          <div class="speaking-card__links">
+            <a href="{{url}}" class="project-link">details</a>
+          </div>
+        </div>
+      {{/foreach}}
+    {{/get}}
+    <a href="/speaking/" class="load-more">view all speaking</a>
+  </section>
+
+  {{!-- ============================================================
+       About Blurb
+       ============================================================ --}}
+  <section class="section" aria-label="About Tessa">
+    <h2 class="section-header">who i am</h2>
+    <div class="subscribe-block" style="border-left-color: var(--border-accent); padding: 1.5rem;">
+      <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.8;">
+        <span style="color: var(--text-dim);">/* </span>
+        Nearly two decades in tech. I've built DevRel programs from zero, written playbooks that shipped developer GTM at scale, founded companies, and homeschooled my kids in Waco, TX. I'm a builder who writes honestly about what it actually takes to ship—at work and at home.
+        <span style="color: var(--text-dim);"> */</span>
+      </p>
+      <a href="/about/" class="load-more" style="display: inline-block; margin-top: 1rem;">read my full story</a>
+    </div>
+  </section>
+
+  {{!-- ============================================================
+       Subscribe CTA
+       ============================================================ --}}
+  <section class="section" aria-label="Subscribe">
+    <h2 class="section-header">stay in the loop</h2>
+    {{> subscribe-cta}}
+  </section>
+
+</div>
+
+{{!-- Pagination --}}
+{{#if pagination}}
+  {{#if pagination.next}}
+    <div class="container">
+      <nav class="pagination" aria-label="Pagination">
+        {{#if pagination.prev}}
+          <a href="{{page_url pagination.prev}}" class="prev">newer posts</a>
+        {{/if}}
+        <span>{{pagination.page}} / {{pagination.pages}}</span>
+        {{#if pagination.next}}
+          <a href="{{page_url pagination.next}}" class="next">older posts</a>
+        {{/if}}
+      </nav>
+    </div>
+  {{/if}}
+{{/if}}

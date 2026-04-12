@@ -1,0 +1,82 @@
+{{!< default}}
+{{!-- Speaking page --}}
+<div class="container">
+
+  {{!-- Page Header --}}
+  <header class="tag-header">
+    <h1 class="display-lg" style="margin-bottom: 0.5rem;">SPEAKING</h1>
+    <p style="font-size: 13px; color: var(--text-secondary);">> developer conferences, podcasts, and industry events</p>
+  </header>
+
+  {{!-- Speaker Card --}}
+  <section class="section">
+    <h2 class="section-header">speaker info</h2>
+    <div class="speaker-card">
+      <div class="speaker-card__photo-placeholder" aria-hidden="true">T</div>
+      <div class="speaker-card__content">
+        <div class="speaker-card__name">Tessa Kriesel</div>
+        <p class="speaker-card__title" style="color: var(--text-secondary); font-size: 13px; margin-bottom: 1rem;">
+          > Founding GTM Lead @Tabstack · Founder @Built for Devs · nearly two decades in DevRel
+        </p>
+        <p class="speaker-card__bio">
+          Tessa Kriesel has spent nearly two decades in tech at the intersection of developer relations, community building, and go-to-market strategy. She's scaled DevRel programs at companies like Netlify and Pantheon, founded Devocate (acquired by Common Room), and now leads GTM at Tabstack while running Built for Devs—the matchmaking platform for elite developer advocates.
+        </p>
+        <div class="speaker-card__topics">
+          <span class="tag">Developer Relations</span>
+          <span class="tag">Developer GTM</span>
+          <span class="tag">PLG Strategy</span>
+          <span class="tag">Building in Public</span>
+          <span class="tag">Community Building</span>
+          <span class="tag">DevRel Leadership</span>
+          <span class="tag">Founder Stories</span>
+        </div>
+        <a href="/contact/" class="btn btn--primary">[request to speak]</a>
+      </div>
+    </div>
+  </section>
+
+  {{!-- Year Filter --}}
+  {{#get "posts" filter="tag:speaking" limit="100"}}
+    <section class="section">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.75rem;">
+        <h2 class="section-header" style="margin-bottom: 0; border: none; padding: 0;">speaking history</h2>
+        <div id="speaking-year-filter" style="display: flex; gap: 0.25rem; flex-wrap: wrap;">
+          <button class="tag active" data-year="all" style="cursor: pointer; border: none; background: none; padding: 0.2rem 0.5rem;">all</button>
+          <button class="tag" data-year="2026" style="cursor: pointer; border: none; background: none; padding: 0.2rem 0.5rem;">2026</button>
+          <button class="tag" data-year="2025" style="cursor: pointer; border: none; background: none; padding: 0.2rem 0.5rem;">2025</button>
+          <button class="tag" data-year="2024" style="cursor: pointer; border: none; background: none; padding: 0.2rem 0.5rem;">2024</button>
+          <button class="tag" data-year="2023" style="cursor: pointer; border: none; background: none; padding: 0.2rem 0.5rem;">2023</button>
+        </div>
+      </div>
+
+      {{#foreach posts}}
+        <div class="speaking-card" data-speaking-year="{{date format="YYYY"}}">
+          <div class="speaking-card__event">{{title}}</div>
+          {{#if custom_excerpt}}
+            <p class="speaking-card__talk">{{custom_excerpt}}</p>
+          {{/if}}
+          <div class="speaking-card__meta">
+            <span class="speaking-card__date">{{date format="YYYY-MM-DD"}}</span>
+          </div>
+          {{#if url}}
+            <div class="speaking-card__links">
+              <a href="{{url}}" class="project-link">details</a>
+            </div>
+          {{/if}}
+        </div>
+      {{else}}
+        <p style="font-size: 13px; color: var(--text-secondary);">
+          > speaking engagements coming soon. <a href="/contact/">reach out</a> to book Tessa.
+        </p>
+      {{/foreach}}
+      {{#if pagination.next}}
+        {{#get "tags" slug="speaking"}}
+          {{#foreach tags}}
+            <a href="{{url}}" class="load-more" style="display: inline-block; margin-top: 1rem;">view full speaking archive</a>
+          {{/foreach}}
+        {{/get}}
+      {{/if}}
+    </section>
+  {{/get}}
+
+</div>

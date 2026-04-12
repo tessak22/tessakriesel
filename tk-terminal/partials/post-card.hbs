@@ -1,0 +1,20 @@
+<article class="post-card {{post_class}}">
+  <div class="post-card__date">{{date format="YYYY-MM-DD"}}</div>
+
+  <h2 class="post-card__title">
+    <a href="{{url}}">{{title}}</a>
+  </h2>
+
+  {{#if custom_excerpt}}
+    <p class="post-card__excerpt">{{custom_excerpt}}</p>
+  {{else if excerpt}}
+    <p class="post-card__excerpt">{{excerpt characters="120"}}</p>
+  {{/if}}
+
+  <div class="post-card__footer">
+    <div class="post-card__meta">{{reading_time}}</div>
+    {{#primary_tag}}
+      <a href="{{url}}" class="tag">{{name}}</a>
+    {{/primary_tag}}
+  </div>
+</article>
