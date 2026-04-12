@@ -5,7 +5,7 @@ primary_region = "dfw"
   image = "ghost:6-alpine"
 
 [env]
-  url = "https://tessakriesel.com"
+  url = "https://tessakriesel.fly.dev"
   database__client = "sqlite3"
   database__connection__filename = "content/data/ghost.db"
   database__useNullAsDefault = "true"
