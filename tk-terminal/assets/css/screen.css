@@ -666,11 +666,11 @@ ul, ol {
 
 .hero__cursor {
   display: inline-block;
-  width: 0.5em;
-  height: 0.8em;
+  width: 1ch;
+  height: 0.7em;
   background: var(--accent);
-  vertical-align: -0.1em;
-  margin-left: 0.1em;
+  vertical-align: text-bottom;
+  margin-left: 0.06em;
   animation: blink-cursor 1s step-end infinite;
 }
 
