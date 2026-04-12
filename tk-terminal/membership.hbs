@@ -1,0 +1,60 @@
+{{!< default}}
+{{!-- Membership / subscribe confirmation page --}}
+<div class="container">
+
+  <div class="terminal-window" style="max-width: 600px; margin: 4rem auto;">
+    {{> terminal-chrome path="~/tessakriesel/membership $"}}
+    <div class="terminal-body" style="padding: 2rem;">
+
+      {{#if @member}}
+        {{!-- Logged-in member view --}}
+        <p class="display-md" style="margin-bottom: 1.5rem;">ACCOUNT</p>
+        <div style="font-size: 13px; color: var(--text-secondary); line-height: 2; margin-bottom: 2rem;">
+          <p style="color: var(--accent);">> status: subscribed</p>
+          <p>> email: {{@member.email}}</p>
+          <p>> member since: {{date @member.created_at format="YYYY-MM-DD"}}</p>
+          {{#if @member.name}}
+            <p>> name: {{@member.name}}</p>
+          {{/if}}
+        </div>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="/#/portal/account" class="btn btn--primary" data-portal="account">[manage account]</a>
+          <a href="/" class="btn">[back to home]</a>
+        </div>
+
+      {{else}}
+        {{!-- Subscribe / sign-in view --}}
+        <p class="display-md" style="margin-bottom: 0.5rem;">SUBSCRIBE</p>
+        <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 2rem;">
+          // writing on devrel, developer gtm, building in public, and what nearly two decades in tech actually looks like
+        </p>
+
+        <div style="font-size: 13px; color: var(--text-dim); line-height: 2; margin-bottom: 2rem;">
+          <p>> free. no spam. unsubscribe any time.</p>
+          <p>> next email: whenever tessa ships something worth reading.</p>
+        </div>
+
+        <form data-members-form="subscribe" class="subscribe-form" style="margin-bottom: 2rem;">
+          <input data-members-email type="email" required placeholder="your@email.com">
+          <button type="submit" class="btn btn--primary">[subscribe]</button>
+        </form>
+
+        <p style="font-size: 11px; color: var(--text-dim);">
+          already a member? <a href="/#/portal/signin" data-portal="signin" style="color: var(--accent);">[sign in]</a>
+        </p>
+      {{/if}}
+
+    </div>
+  </div>
+
+  {{!-- Post-subscribe success (shown by Ghost Portal after sign-up) --}}
+  {{#if @labs.membersEnabled}}
+    <div style="display:none" class="subscribe-success-block">
+      <p style="font-size: 13px; color: var(--accent); text-align: center; margin-top: 1rem;">
+        > success: you're subscribed.<br>
+        > next email: whenever tessa ships something worth reading.
+      </p>
+    </div>
+  {{/if}}
+
+</div>
