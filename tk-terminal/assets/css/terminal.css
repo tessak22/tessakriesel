@@ -52,10 +52,20 @@
 }
 
 /* Project-specific tag colors */
-[data-project="tabstack"]      { color: var(--accent); }
-[data-project="built-for-devs"] { color: var(--amber); border-color: rgba(254, 188, 46, 0.3); background: rgba(254, 188, 46, 0.08); }
-[data-project="selah"]         { color: var(--green); border-color: rgba(40, 200, 64, 0.3); background: rgba(40, 200, 64, 0.08); }
-[data-project="site"]          { color: var(--text-secondary); border-color: var(--border); background: var(--bg-elevated); }
+/* tabstack — brand purple */
+[data-project="tabstack"]       { color: #a78bf0; border-color: rgba(167, 139, 240, 0.35); background: rgba(167, 139, 240, 0.1); }
+/* built-for-devs — amber gold */
+[data-project="built-for-devs"] { color: #febc2e; border-color: rgba(254, 188, 46, 0.35); background: rgba(254, 188, 46, 0.08); }
+/* selah — terminal green */
+[data-project="selah"]          { color: #28c840; border-color: rgba(40, 200, 64, 0.35); background: rgba(40, 200, 64, 0.08); }
+/* site — sky blue */
+[data-project="site"]           { color: #5b9bd5; border-color: rgba(91, 155, 213, 0.35); background: rgba(91, 155, 213, 0.08); }
+/* quiver — coral red */
+[data-project="quiver"]         { color: #ff6b6b; border-color: rgba(255, 107, 107, 0.35); background: rgba(255, 107, 107, 0.08); }
+/* rival — pink/magenta */
+[data-project="rival"]          { color: #da81c0; border-color: rgba(218, 129, 192, 0.35); background: rgba(218, 129, 192, 0.08); }
+/* statiq — teal */
+[data-project="statiq"]         { color: #40c4aa; border-color: rgba(64, 196, 170, 0.35); background: rgba(64, 196, 170, 0.08); }
 
 /* ------------------------------------------------------------
    Git log timeline — About page
