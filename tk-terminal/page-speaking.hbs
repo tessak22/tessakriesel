@@ -70,7 +70,11 @@
         </p>
       {{/foreach}}
       {{#if pagination.next}}
-        <a href="/tag/speaking/" class="load-more" style="display: inline-block; margin-top: 1rem;">view full speaking archive</a>
+        {{#get "tags" slug="speaking"}}
+          {{#foreach tags}}
+            <a href="{{url}}" class="load-more" style="display: inline-block; margin-top: 1rem;">view full speaking archive</a>
+          {{/foreach}}
+        {{/get}}
       {{/if}}
     </section>
   {{/get}}
