@@ -2,12 +2,21 @@
 {{!-- Generic page fallback --}}
 <div class="post-full">
 
-  <header class="post-header">
-    <h1 class="post-title">{{title}}</h1>
-    {{#if custom_excerpt}}
-      <p class="post-meta" style="font-size: 13px; color: var(--text-secondary); margin-top: 0.75rem;">{{custom_excerpt}}</p>
-    {{/if}}
-  </header>
+  {{#if @page.show_title_and_feature_image}}
+    <header class="post-header">
+      <h1 class="post-title">{{title}}</h1>
+      {{#if custom_excerpt}}
+        <p class="post-meta" style="font-size: 13px; color: var(--text-secondary); margin-top: 0.75rem;">{{custom_excerpt}}</p>
+      {{/if}}
+    </header>
+  {{else}}
+    <header class="post-header">
+      <h1 class="post-title">{{title}}</h1>
+      {{#if custom_excerpt}}
+        <p class="post-meta" style="font-size: 13px; color: var(--text-secondary); margin-top: 0.75rem;">{{custom_excerpt}}</p>
+      {{/if}}
+    </header>
+  {{/if}}
 
   <section class="post-content kg-canvas">
     {{content}}
