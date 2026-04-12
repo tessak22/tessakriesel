@@ -3,10 +3,11 @@
   <p class="subscribe-block__desc">// writing on devrel, developer gtm, building in public, and what nearly two decades in tech actually looks like</p>
 
   {{#if @member}}
-    <p class="text-green" style="font-size: 13px;">
-      > you're subscribed. thanks for being here.
-    </p>
+    <p style="font-size: 13px; color: var(--accent);">> you're subscribed. welcome to the loop.</p>
   {{else}}
-    {{subscribe_form placeholder="your@email.com" class="subscribe-form"}}
+    <form data-members-form="subscribe" class="subscribe-form">
+      <input data-members-email type="email" required placeholder="your@email.com">
+      <button type="submit" class="btn btn--primary">[subscribe]</button>
+    </form>
   {{/if}}
 </div>
