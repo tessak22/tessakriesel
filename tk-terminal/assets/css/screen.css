@@ -648,11 +648,12 @@ ul, ol {
 
 .hero__cursor {
   display: inline-block;
-  color: var(--accent);
+  width: 0.5em;
+  height: 0.8em;
+  background: var(--accent);
+  vertical-align: -0.1em;
+  margin-left: 0.1em;
   animation: blink-cursor 1s step-end infinite;
-  font-family: var(--font-display);
-  font-size: 64px;
-  line-height: 1;
 }
 
 @keyframes blink-cursor {
@@ -968,10 +969,6 @@ pre code {
     font-size: 44px;
   }
 
-  .hero__cursor {
-    font-size: 44px;
-  }
-
   .post-feed,
   .project-grid {
     grid-template-columns: 1fr;
@@ -1028,10 +1025,6 @@ pre code {
 
 @media (max-width: 480px) {
   .hero__name {
-    font-size: 36px;
-  }
-
-  .hero__cursor {
     font-size: 36px;
   }
 
