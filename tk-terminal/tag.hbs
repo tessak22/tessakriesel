@@ -1,3 +1,4 @@
+{{!< default}}
 {{!-- Tag archive --}}
 <div class="container">
 
@@ -20,13 +21,13 @@
   {{#if pagination}}
     <nav class="pagination" aria-label="Tag archive pagination">
       {{#if pagination.prev}}
-        <a href="{{pagination.prev.url}}" class="prev">newer</a>
+        <a href="{{page_url pagination.prev}}" class="prev">newer</a>
       {{else}}
         <span></span>
       {{/if}}
       <span class="text-dim">{{pagination.page}} / {{pagination.pages}}</span>
       {{#if pagination.next}}
-        <a href="{{pagination.next.url}}" class="next">older</a>
+        <a href="{{page_url pagination.next}}" class="next">older</a>
       {{else}}
         <span></span>
       {{/if}}

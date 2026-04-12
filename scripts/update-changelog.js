@@ -67,7 +67,13 @@ function parseArgs() {
 // Format a changelog entry as HTML
 // ----------------------------------------------------------------
 function formatEntry(date, entries) {
-  const lines = entries.map(e => `<p><strong>${e}</strong></p>`).join('\n');
+  const lines = entries.map(e => {
+    // Bold only the [project] tag prefix — not the full line
+    // Input: "[tabstack] Description text"
+    // Output: "<p><strong>[tabstack]</strong> Description text</p>"
+    const formatted = e.replace(/^(\[[\w-]+\])(\s*)/, '<strong>$1</strong>$2');
+    return `<p>${formatted}</p>`;
+  }).join('\n');
   return `<h2>${date}</h2>\n${lines}`;
 }
 
