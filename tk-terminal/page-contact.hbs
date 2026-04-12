@@ -1,0 +1,68 @@
+{{!-- Contact page --}}
+<div class="container">
+
+  <header class="tag-header">
+    <h1 class="display-lg" style="margin-bottom: 0.5rem;">CONTACT</h1>
+    <p style="font-size: 13px; color: var(--text-secondary);">> reach out. i read everything.</p>
+  </header>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+
+    {{!-- Context --}}
+    <div>
+      <section class="section" style="margin-bottom: 2rem;">
+        <h2 class="section-header">good reasons to reach out</h2>
+        <div style="font-size: 13px; color: var(--text-secondary); line-height: 2;">
+          <p>> speaking invitations</p>
+          <p>> built for devs — hire a developer advocate</p>
+          <p>> devrel consulting or advisory</p>
+          <p>> podcast / interview / collab</p>
+          <p>> mentorship (limited capacity)</p>
+          <p>> general "your writing helped me" note</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-header">find me</h2>
+        {{> social-links}}
+        <p style="margin-top: 1.25rem; font-size: 12px; color: var(--text-dim);">
+          // response time: usually within a week. i'm building things and raising kids—thanks for your patience.
+        </p>
+      </section>
+    </div>
+
+    {{!-- Contact Form / Ghost Subscribe --}}
+    <div>
+      <section class="section">
+        <h2 class="section-header">send a message</h2>
+
+        {{#if @member}}
+          <div class="contact-form">
+            <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 1.25rem;">
+              > you're a subscriber — thanks for being here. reach out directly via social or email.
+            </p>
+            {{> social-links}}
+          </div>
+        {{else}}
+          {{!-- Ghost native subscribe as primary CTA with note --}}
+          <div class="contact-form">
+            <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
+              // the best way to stay connected is subscribing. for direct outreach, reach me on linkedin or twitter.
+            </p>
+
+            <div style="margin-bottom: 1.5rem;">
+              {{subscribe_form placeholder="your@email.com" class="subscribe-form"}}
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--border); margin: 1.5rem 0;">
+
+            <p style="font-size: 12px; color: var(--text-dim); margin-bottom: 0.75rem;">> direct contact</p>
+            {{> social-links}}
+          </div>
+        {{/if}}
+      </section>
+    </div>
+
+  </div>
+
+</div>

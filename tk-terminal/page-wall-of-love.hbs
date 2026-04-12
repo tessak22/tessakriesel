@@ -1,0 +1,89 @@
+{{!-- Wall of Love --}}
+<div class="container">
+
+  <header class="tag-header">
+    <h1 class="display-lg" style="margin-bottom: 0.5rem;">WALL OF LOVE</h1>
+    <p style="font-size: 13px; color: var(--text-secondary);">> what people say about working with tessa</p>
+  </header>
+
+  {{!-- Ghost page content (testimonials managed as page body) --}}
+  {{#if content}}
+    <div class="post-content changelog-content" style="margin-bottom: 3rem;">
+      {{content}}
+    </div>
+  {{else}}
+
+    {{!-- Default testimonials (can be replaced via Ghost Admin page content) --}}
+
+    <section class="section">
+      <h2 class="section-header">devrel & leadership</h2>
+
+      <div class="terminal-quote">
+        <p class="terminal-quote__text">
+          <span class="terminal-quote__text-inner">Tessa is one of those rare people who can bridge the gap between deeply technical developer audiences and strategic business goals. She built our DevRel motion from scratch and it became one of our strongest growth levers.</span>
+        </p>
+        <p class="terminal-quote__attribution">
+          <span>Hiring Manager</span>
+          <span class="terminal-quote__title"> — DevRel leadership reference</span>
+        </p>
+      </div>
+
+      <div class="terminal-quote">
+        <p class="terminal-quote__text">
+          <span class="terminal-quote__text-inner">Working with Tessa through Built for Devs was seamless. She understood exactly what kind of developer advocate we needed—and she delivered someone who's been an absolute force for our community.</span>
+        </p>
+        <p class="terminal-quote__attribution">
+          <span>Founder, Developer Tool Company</span>
+          <span class="terminal-quote__title"> — Built for Devs client</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-header">speaking & content</h2>
+
+      <div class="terminal-quote">
+        <p class="terminal-quote__text">
+          <span class="terminal-quote__text-inner">Tessa's talk was the highlight of our conference. She has this ability to make complex GTM concepts completely actionable for a developer audience—and they leave energized, not overwhelmed.</span>
+        </p>
+        <p class="terminal-quote__attribution">
+          <span>Conference Organizer</span>
+          <span class="terminal-quote__title"> — DevRel conference</span>
+        </p>
+      </div>
+
+      <div class="terminal-quote">
+        <p class="terminal-quote__text">
+          <span class="terminal-quote__text-inner">Tessa's writing is the kind that makes you feel like she's been in your exact situation. No fluff, no generic advice—just hard-won clarity about what DevRel actually looks like at real companies.</span>
+        </p>
+        <p class="terminal-quote__attribution">
+          <span>DevRel Professional</span>
+          <span class="terminal-quote__title"> — reader / mentee</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-header">mentorship</h2>
+
+      <div class="terminal-quote">
+        <p class="terminal-quote__text">
+          <span class="terminal-quote__text-inner">Tessa helped me go from feeling lost about my DevRel career direction to having an actual plan—with specific steps, honest feedback, and genuine investment in my success.</span>
+        </p>
+        <p class="terminal-quote__attribution">
+          <span>Developer Advocate</span>
+          <span class="terminal-quote__title"> — mentorship</span>
+        </p>
+      </div>
+    </section>
+
+  {{/if}}
+
+  <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-top: 2rem;">
+    <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 1rem;">
+      // worked with tessa? she'd love to hear from you.
+    </p>
+    <a href="/contact/" class="btn">share your experience</a>
+  </div>
+
+</div>

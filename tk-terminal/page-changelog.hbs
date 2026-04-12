@@ -1,0 +1,50 @@
+{{!-- Changelog page --}}
+<div class="container">
+
+  {{!-- Page Header --}}
+  <header class="tag-header">
+    <h1 class="display-lg" style="margin-bottom: 0.5rem;">CHANGELOG</h1>
+    <p style="font-size: 13px; color: var(--text-secondary);">> a running log of what's shipping across my work</p>
+  </header>
+
+  {{!-- Stats row --}}
+  <div style="margin-bottom: 2rem; font-family: var(--font-mono); font-size: 12px;">
+    <span id="changelog-stats" style="color: var(--text-secondary);"></span>
+    <span style="margin-left: 1rem; color: var(--text-dim);">// updated frequently via ghost + claude</span>
+  </div>
+
+  {{!-- Terminal Chrome wrapper --}}
+  <div class="terminal-window" style="margin-bottom: 3rem;">
+    {{> terminal-chrome path="~/tessakriesel/changelog $"}}
+    <div class="terminal-body">
+      <div class="changelog-content">
+        {{content}}
+      </div>
+
+      {{!-- Fallback if no content --}}
+      {{#unless content}}
+        <p style="font-size: 13px; color: var(--text-dim);">
+          > no entries yet. the changelog is updated regularly via Ghost + Claude automation.<br>
+          > check back soon.
+        </p>
+      {{/unless}}
+    </div>
+  </div>
+
+  {{!-- Changelog Legend --}}
+  <section style="margin-top: 2rem;">
+    <h2 class="section-header">project keys</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+      <span class="changelog-project-tag" data-project="tabstack">[tabstack]</span>
+      <span class="changelog-project-tag" style="color: var(--amber); border-color: rgba(254,188,46,0.3); background: rgba(254,188,46,0.08);">[built-for-devs]</span>
+      <span class="changelog-project-tag" style="color: var(--green); border-color: rgba(40,200,64,0.3); background: rgba(40,200,64,0.08);">[selah]</span>
+      <span class="changelog-project-tag" style="color: var(--text-secondary); border-color: var(--border); background: var(--bg-elevated);">[site]</span>
+      <span class="changelog-project-tag">[quiver]</span>
+      <span class="changelog-project-tag">[rival]</span>
+      <span class="changelog-project-tag">[statiq]</span>
+    </div>
+  </section>
+
+</div>
+
+<script src="{{asset "js/changelog.js"}}"></script>

@@ -1,0 +1,36 @@
+{{!-- Tag archive --}}
+<div class="container">
+
+  <header class="tag-header">
+    {{#tag}}
+      <h1 class="tag-title">{{name}}</h1>
+      <p class="tag-count">{{pagination.total}}</p>
+      {{#if description}}
+        <p class="tag-description">{{description}}</p>
+      {{/if}}
+    {{/tag}}
+  </header>
+
+  <div class="post-feed">
+    {{#foreach posts}}
+      {{> post-card}}
+    {{/foreach}}
+  </div>
+
+  {{#if pagination}}
+    <nav class="pagination" aria-label="Tag archive pagination">
+      {{#if pagination.prev}}
+        <a href="{{pagination.prev.url}}" class="prev">newer</a>
+      {{else}}
+        <span></span>
+      {{/if}}
+      <span class="text-dim">{{pagination.page}} / {{pagination.pages}}</span>
+      {{#if pagination.next}}
+        <a href="{{pagination.next.url}}" class="next">older</a>
+      {{else}}
+        <span></span>
+      {{/if}}
+    </nav>
+  {{/if}}
+
+</div>

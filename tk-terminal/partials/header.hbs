@@ -1,0 +1,18 @@
+<header class="site-header" role="banner">
+  <div class="site-header__inner">
+    <a href="{{@site.url}}" class="site-logo" aria-label="{{@site.title}} — home">
+      <img src="{{asset "images/tk-logo.svg"}}" alt="TK logo" width="24" height="24">
+      <span>TK</span>
+    </a>
+
+    <nav class="site-nav" role="navigation" aria-label="Primary navigation" id="site-nav">
+      {{#foreach @site.navigation}}
+        <a href="{{url absolute="true"}}"{{#if current}} class="active"{{/if}}>{{label}}</a>
+      {{/foreach}}
+    </nav>
+
+    <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+      [menu]
+    </button>
+  </div>
+</header>

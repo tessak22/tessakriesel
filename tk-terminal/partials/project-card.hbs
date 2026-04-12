@@ -1,0 +1,20 @@
+{{!--
+  Project Card partial — receives Ghost post context
+  Posts tagged "projects" render with this card layout
+--}}
+<div class="project-card">
+  <div class="project-card__header">
+    <span class="project-card__name">{{title}}</span>
+    {{#primary_tag}}
+      <a href="{{url}}" class="tag">{{name}}</a>
+    {{/primary_tag}}
+  </div>
+
+  {{#if custom_excerpt}}
+    <p class="project-card__desc">{{custom_excerpt}}</p>
+  {{/if}}
+
+  <div class="project-card__links">
+    <a href="{{url}}" class="project-link">read more</a>
+  </div>
+</div>

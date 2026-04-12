@@ -1,0 +1,27 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="site-footer__inner">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a href="{{@site.url}}" class="site-logo" style="margin-bottom: 0.75rem; display: inline-flex;">
+          <img src="{{asset "images/tk-logo.svg"}}" alt="TK logo" width="20" height="20">
+          <span style="margin-left: 0.4rem; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary);">Tessa Kriesel</span>
+        </a>
+        <div style="margin-top: 0.75rem;">
+          {{> social-links}}
+        </div>
+      </div>
+
+      <nav class="site-footer__nav" aria-label="Footer navigation">
+        {{#foreach @site.secondary_navigation}}
+          <a href="{{url absolute="true"}}">{{label}}</a>
+        {{/foreach}}
+        <a href="{{@site.url}}#/subscribe/">subscribe</a>
+      </nav>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span>&copy; {{date format="YYYY"}} Tessa Kriesel</span>
+      <span>> built with <a href="https://ghost.org" target="_blank" rel="noopener" style="color: var(--text-dim);">ghost</a> · custom theme</span>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,550 @@
+/* ============================================================
+   tk-terminal — terminal.css
+   Terminal UI components and specific terminal aesthetics
+   tessakriesel.com
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Changelog specific styles
+   ------------------------------------------------------------ */
+.changelog-content h2,
+.changelog-date {
+  font-family: var(--font-display);
+  font-size: 28px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 2.5rem 0 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.1;
+}
+
+.changelog-content h2::before,
+.changelog-date::before {
+  content: 'commit ';
+  color: var(--text-dim);
+  font-size: 16px;
+}
+
+.changelog-content p,
+.changelog-entry {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+  border-left: 1px solid var(--border);
+}
+
+.changelog-content strong,
+.changelog-project-tag {
+  color: var(--accent);
+  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  background: rgba(129, 97, 218, 0.1);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius);
+  padding: 0.1rem 0.35rem;
+  margin-right: 0.25rem;
+  text-transform: uppercase;
+}
+
+/* Project-specific tag colors */
+[data-project="tabstack"]      { color: var(--accent); }
+[data-project="built-for-devs"] { color: var(--amber); border-color: rgba(254, 188, 46, 0.3); background: rgba(254, 188, 46, 0.08); }
+[data-project="selah"]         { color: var(--green); border-color: rgba(40, 200, 64, 0.3); background: rgba(40, 200, 64, 0.08); }
+[data-project="site"]          { color: var(--text-secondary); border-color: var(--border); background: var(--bg-elevated); }
+
+/* ------------------------------------------------------------
+   Git log timeline — About page
+   ------------------------------------------------------------ */
+.git-log {
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.git-log-entry {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+
+.git-log-entry:last-child {
+  border-bottom: none;
+}
+
+.git-log-year {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  padding-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+.git-log-year::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-bottom: 0.25rem;
+}
+
+.git-log-content {}
+
+.git-log-role {
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.git-log-company {
+  color: var(--accent);
+}
+
+.git-log-notes {
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.git-log-notes::before {
+  content: '// ';
+  color: var(--text-dim);
+}
+
+/* ------------------------------------------------------------
+   Terminal block quote — Wall of Love
+   ------------------------------------------------------------ */
+.terminal-quote {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 12px;
+  transition: border-color var(--transition);
+}
+
+.terminal-quote:hover {
+  border-color: var(--border-accent);
+  border-left-color: var(--accent);
+}
+
+.terminal-quote__text {
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.terminal-quote__text::before {
+  content: '> ';
+  color: var(--text-dim);
+}
+
+.terminal-quote__text::after {
+  content: '"';
+}
+
+.terminal-quote__text-inner::before {
+  content: '"';
+}
+
+.terminal-quote__attribution {
+  font-size: 12px;
+  color: var(--text-secondary);
+  padding-left: 1rem;
+}
+
+.terminal-quote__attribution::before {
+  content: '  — ';
+  color: var(--text-dim);
+}
+
+.terminal-quote__title {
+  color: var(--text-dim);
+  font-size: 11px;
+}
+
+/* ------------------------------------------------------------
+   Speaking cards
+   ------------------------------------------------------------ */
+.speaking-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 12px;
+  transition: border-color var(--transition);
+}
+
+.speaking-card:hover {
+  border-color: var(--border-accent);
+}
+
+.speaking-card__event {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.speaking-card__talk {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.speaking-card__meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+.speaking-card__date::before    { content: '> date: '; color: var(--text-dim); }
+.speaking-card__location::before { content: '> location: '; color: var(--text-dim); }
+.speaking-card__format::before  { content: '> format: '; color: var(--text-dim); }
+
+.speaking-card__links {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ------------------------------------------------------------
+   Speaker bio card
+   ------------------------------------------------------------ */
+.speaker-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.speaker-card__photo {
+  width: 140px;
+  height: 140px;
+  border-radius: var(--radius);
+  border: 2px solid var(--border-accent);
+  object-fit: cover;
+  flex-shrink: 0;
+  filter: grayscale(20%) contrast(1.05);
+}
+
+.speaker-card__photo-placeholder {
+  width: 140px;
+  height: 140px;
+  background: var(--bg-elevated);
+  border: 2px solid var(--border-accent);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 64px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.speaker-card__content {
+  flex: 1;
+}
+
+.speaker-card__name {
+  font-family: var(--font-display);
+  font-size: 36px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.speaker-card__title {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.speaker-card__bio {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.speaker-card__topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 1.25rem;
+}
+
+/* ------------------------------------------------------------
+   Contact form
+   ------------------------------------------------------------ */
+.contact-form {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.form-label::before {
+  content: '> ';
+  color: var(--accent);
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.875rem;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--transition);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  border-color: var(--accent);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-dim);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------------------
+   Error / 404 page
+   ------------------------------------------------------------ */
+.error-page {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem var(--page-padding);
+}
+
+.error-ascii {
+  font-family: var(--font-display);
+  font-size: 80px;
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  opacity: 0.85;
+}
+
+.error-terminal {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 2rem;
+  text-align: left;
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 2rem;
+}
+
+.error-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 2;
+}
+
+.error-line--error { color: #ff5f57; }
+.error-line--warn  { color: var(--amber); }
+.error-line--ok    { color: var(--green); }
+
+.error-line::before {
+  content: '> ';
+  color: var(--text-dim);
+}
+
+/* ------------------------------------------------------------
+   Tag archive header
+   ------------------------------------------------------------ */
+.tag-header {
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+}
+
+.tag-title {
+  font-family: var(--font-display);
+  font-size: 48px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.tag-title::before {
+  content: '// tag: ';
+  color: var(--text-dim);
+  font-size: 28px;
+}
+
+.tag-count {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.tag-count::before {
+  content: '> ';
+  color: var(--accent);
+}
+
+.tag-count::after {
+  content: ' entries found';
+}
+
+.tag-description {
+  margin-top: 0.75rem;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+/* ------------------------------------------------------------
+   Author page
+   ------------------------------------------------------------ */
+.author-header {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+}
+
+.author-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius);
+  border: 2px solid var(--border-accent);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.author-name {
+  font-family: var(--font-display);
+  font-size: 42px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.author-bio {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+/* ------------------------------------------------------------
+   Ghost membership portal overrides
+   ------------------------------------------------------------ */
+.gh-signin-form,
+.gh-portal-input,
+.gh-portal-btn {
+  font-family: var(--font-mono) !important;
+  border-radius: var(--radius) !important;
+}
+
+.gh-portal-btn-main {
+  background: var(--accent) !important;
+  font-family: var(--font-mono) !important;
+  border-radius: var(--radius) !important;
+}
+
+/* Search results */
+.gh-search-result {
+  font-family: var(--font-mono) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.gh-search-result-title {
+  color: var(--text-primary) !important;
+}
+
+/* ------------------------------------------------------------
+   Mobile terminal.css
+   ------------------------------------------------------------ */
+@media (max-width: 768px) {
+  .speaker-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .speaker-card__topics {
+    justify-content: center;
+  }
+
+  .git-log-entry {
+    grid-template-columns: 60px 1fr;
+    gap: 0.75rem;
+  }
+
+  .error-ascii {
+    font-size: 60px;
+  }
+
+  .tag-title {
+    font-size: 36px;
+  }
+
+  .tag-title::before {
+    font-size: 22px;
+  }
+
+  .author-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}

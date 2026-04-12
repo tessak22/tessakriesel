@@ -1,0 +1,12 @@
+<div class="subscribe-block">
+  <div class="subscribe-block__title">stay in the loop</div>
+  <p class="subscribe-block__desc">// writing on devrel, developer gtm, building in public, and what nearly two decades in tech actually looks like</p>
+
+  {{#if @member}}
+    <p class="text-green" style="font-size: 13px;">
+      > you're subscribed. thanks for being here.
+    </p>
+  {{else}}
+    {{subscribe_form placeholder="your@email.com" class="subscribe-form"}}
+  {{/if}}
+</div>

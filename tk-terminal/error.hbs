@@ -1,0 +1,32 @@
+{{!-- 404 Error page --}}
+<div class="container">
+  <div class="error-page">
+
+    {{!-- ASCII T --}}
+    <div class="error-ascii" aria-hidden="true">
+      ████████<br>
+      &nbsp;&nbsp;&nbsp;██<br>
+      &nbsp;&nbsp;&nbsp;██<br>
+      &nbsp;&nbsp;&nbsp;██<br>
+      &nbsp;&nbsp;&nbsp;██
+    </div>
+
+    {{!-- Terminal error block --}}
+    <div class="error-terminal" role="main" aria-label="Error information">
+      <p class="error-line error-line--error">error: {{statusCode}}</p>
+      <p class="error-line error-line--error">path not found</p>
+      <p class="error-line" style="margin-top: 0.5rem;">// {{message}}</p>
+      <p class="error-line" style="margin-top: 0.5rem;">try: cd ~/tessakriesel</p>
+    </div>
+
+    {{!-- Navigation options --}}
+    <div style="text-align: left; width: 100%; max-width: 480px;">
+      <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 1rem;">> suggestion: return home?</p>
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <a href="/" class="btn btn--primary">yes — take me home</a>
+        <a href="/writing/" class="btn">no — show me writing</a>
+      </div>
+    </div>
+
+  </div>
+</div>

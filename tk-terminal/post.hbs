@@ -1,0 +1,79 @@
+{{!-- Single Post --}}
+<article class="post-full {{post_class}}" itemscope itemtype="https://schema.org/BlogPosting">
+
+  <div class="post-full">
+    {{!-- Post Header --}}
+    <header class="post-header">
+      {{#if tags}}
+        <div class="post-header__tags">
+          {{#foreach tags}}
+            <a href="{{url}}" class="tag">{{name}}</a>
+          {{/foreach}}
+        </div>
+      {{/if}}
+
+      <h1 class="post-title" itemprop="headline">{{title}}</h1>
+
+      <div class="post-meta">
+        <span class="post-meta__date">
+          <time datetime="{{date format="YYYY-MM-DD"}}" itemprop="datePublished">{{date format="YYYY-MM-DD"}}</time>
+        </span>
+        <span class="post-meta__reading-time">{{reading_time}}</span>
+        {{#primary_author}}
+          <span class="post-meta__author" itemprop="author">{{name}}</span>
+        {{/primary_author}}
+      </div>
+    </header>
+
+    {{!-- Post Body --}}
+    <section class="post-content kg-canvas" itemprop="articleBody">
+      {{content}}
+    </section>
+
+    {{!-- Post Footer --}}
+    <footer class="post-footer">
+
+      {{!-- Author Card --}}
+      {{#primary_author}}
+        <div class="post-author-card">
+          {{#if profile_image}}
+            <img class="post-author-card__avatar" src="{{profile_image}}" alt="{{name}}" width="48" height="48">
+          {{else}}
+            <div class="post-author-card__avatar--placeholder">T</div>
+          {{/if}}
+          <div>
+            <div class="post-author-card__name">{{name}}</div>
+            {{#if bio}}
+              <p class="post-author-card__bio">{{bio}}</p>
+            {{/if}}
+          </div>
+        </div>
+      {{/primary_author}}
+
+      {{!-- Prev / Next Navigation --}}
+      <nav class="post-nav" aria-label="Post navigation">
+        {{#prev_post}}
+          <a href="{{url}}" class="post-nav__item post-nav__item--prev">
+            <div class="post-nav__label">prev post</div>
+            <div class="post-nav__title">{{title}}</div>
+          </a>
+        {{/prev_post}}
+        {{#next_post}}
+          <a href="{{url}}" class="post-nav__item post-nav__item--next" style="{{#unless prev_post}}grid-column: 1 / -1;{{/unless}}">
+            <div class="post-nav__label">next post</div>
+            <div class="post-nav__title">{{title}}</div>
+          </a>
+        {{/next_post}}
+      </nav>
+
+      {{!-- Ghost Comments --}}
+      {{#if comments}}
+        <div class="post-comments">
+          {{comments}}
+        </div>
+      {{/if}}
+
+    </footer>
+  </div>
+
+</article>
